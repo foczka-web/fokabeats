@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOKA BEATS</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f7f7f5;
+      color: #111;
+      font-family: "Inter", system-ui, sans-serif;
+    }
+
+    header {
+      width: min(100% - 48px, 1000px);
+      margin: 0 auto;
+      padding: 36px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+
+    .status {
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    main {
+      width: min(100% - 48px, 1000px);
+      margin: 55px auto;
+    }
+
+    .hero {
+      max-width: 700px;
+      margin-bottom: 70px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(54px, 10vw, 110px);
+      line-height: 0.88;
+      letter-spacing: -0.08em;
+    }
+
+    .hero p {
+      max-width: 430px;
+      margin: 24px 0 0;
+      color: #6f6f6f;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .track {
+      padding: 24px 0;
+    }
+
+    .track-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .track-name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .track-type {
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .separator {
+      border: 0;
+      height: 1px;
+      margin: 0;
+      background: #d8d8d8;
+    }
+
+    .audio-ui {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .playBtn {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border: 1px solid #111;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .playBtn:hover {
+      transform: scale(1.08);
+      background: #333;
+    }
+
+    .wave {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      width: 42px;
+      height: 25px;
+    }
+
+    .wave i {
+      width: 3px;
+      height: 5px;
+      border-radius: 5px;
+      background: #111;
+    }
+
+    .track.playing .wave i {
+      animation: beat 0.65s ease-in-out infinite alternate;
+    }
+
+    .track.playing .wave i:nth-child(2n) {
+      animation-delay: 0.12s;
+    }
+
+    .track.playing .wave i:nth-child(3n) {
+      animation-delay: 0.25s;
+    }
+
+    @keyframes beat {
+      from {
+        height: 5px;
+      }
+
+      to {
+        height: 24px;
+      }
+    }
+
+    input[type="range"] {
+      appearance: none;
+      height: 2px;
+      border: 0;
+      background: #bdbdbd;
+      cursor: pointer;
+    }
+
+    .progress {
+      flex: 1;
+    }
+
+    .volume {
+      width: 85px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #111;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 10px;
+      height: 10px;
+      border: 0;
+      border-radius: 50%;
+      background: #111;
+    }
+
+    footer {
+      width: min(100% - 48px, 1000px);
+      margin: 0 auto 30px;
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 600px) {
+      header,
+      main,
+      footer {
+        width: min(100% - 32px, 1000px);
+      }
+
+      .status {
+        display: none;
+      }
+
+      .track-info {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .volume {
+        width: 55px;
+      }
+
+      .wave {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <p class="logo">prodbyfoka</p>
+    <span class="status">suggested beats</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>FOKA<br>BEATS.</h1>
+      <p>
+        Odsłuchaj dostępne demo. Aby kupić licencję uzgodnij ig:@prodbyfoka.
+      </p>
+    </section>
+
+    <section class="track">
+      <div class="track-info">
+        <span class="track-name">01 — hellokitty</span>
+        <span class="track-type">F# Minor · 146 BPM</span>
+      </div>
+
+      <div class="audio-ui">
+        <button class="playBtn" type="button">▶</button>
+        <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <input class="progress" type="range" min="0" max="100" value="0">
+        <input class="volume" type="range" min="0" max="100" value="80">
+      </div>
+
+      <audio src="./fshrminor146bpmhellokitty.mp3"></audio>
+    </section>
+
+    <hr class="separator">
+
+    <section class="track">
+      <div class="track-info">
+        <span class="track-name">02 — molly</span>
+        <span class="track-type">A# MAJOR · 146 BPM</span>
+      </div>
+
+      <div class="audio-ui">
+        <button class="playBtn" type="button">▶</button>
+        <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <input class="progress" type="range" min="0" max="100" value="0">
+        <input class="volume" type="range" min="0" max="100" value="80">
+      </div>
+
+      <audio src="nost146bpmashrmajor.mp3"></audio>
+    </section>
+
+    <hr class="separator">
+
+    <section class="track">
+      <div class="track-info">
+        <span class="track-name">03 — badtrip</span>
+        <span class="track-type">A# MINOR · 153 BPM</span>
+      </div>
+
+      <div class="audio-ui">
+        <button class="playBtn" type="button">▶</button>
+        <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <input class="progress" type="range" min="0" max="100" value="0">
+        <input class="volume" type="range" min="0" max="100" value="80">
+      </div>
+
+      <audio src="datura153bpmashrminor.mp3"></audio>
+    </section>
+
+    <hr class="separator">
+
+    <section class="track">
+      <div class="track-info">
+        <span class="track-name">04 — confuzed</span>
+        <span class="track-type">C MAJOR · 148 BPM</span>
+      </div>
+
+      <div class="audio-ui">
+        <button class="playBtn" type="button">▶</button>
+        <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <input class="progress" type="range" min="0" max="100" value="0">
+        <input class="volume" type="range" min="0" max="100" value="80">
+      </div>
+
+      <audio src="fall148bpmcmajor.mp3"></audio>
+    </section>
+  </main>
+
+  <footer>© 2026 YOUR NAME — ALL RIGHTS RESERVED</footer>
+
+  <script>
+    document.querySelectorAll(".track").forEach(track => {
+      const audio = track.querySelector("audio");
+      const playBtn = track.querySelector(".playBtn");
+      const progress = track.querySelector(".progress");
+      const volume = track.querySelector(".volume");
+
+      playBtn.addEventListener("click", () => {
+        document.querySelectorAll("audio").forEach(otherAudio => {
+          if (otherAudio !== audio) {
+            otherAudio.pause();
+            otherAudio.currentTime = 0;
+          }
+        });
+
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      });
+
+      audio.addEventListener("play", () => {
+        track.classList.add("playing");
+        playBtn.textContent = "❚❚";
+      });
+
+      audio.addEventListener("pause", () => {
+        track.classList.remove("playing");
+        playBtn.textContent = "▶";
+      });
+
+      audio.addEventListener("ended", () => {
+        progress.value = 0;
+      });
+
+      audio.addEventListener("timeupdate", () => {
+        progress.value = (audio.currentTime / audio.duration) * 100 || 0;
+      });
+
+      progress.addEventListener("input", () => {
+        audio.currentTime = (progress.value / 100) * audio.duration;
+      });
+
+      volume.addEventListener("input", () => {
+        audio.volume = volume.value / 100;
+      });
+    });
+  </script>
+</body>
+</html>
